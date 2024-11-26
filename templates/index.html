@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Classificador BebaAI</title>
+        <link rel="stylesheet" href="../static/css/style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>BebaAI</h1>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#contexto">Contexto</a></li>
+                    <li><a href="#formulario">Formulário</a></li>
+                    <li><a href="#resultados">Resultados</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Classificação de Consumidor de bebidas alcoólicas</h2>
+            </div>
+        </section>
+
+        <main id="main">
+            <section id="intro-contexto">
+                <section id="inicio">
+                    <div class="intro">
+                        <h2>Bem-vindo ao BebaAI</h2>
+                        <p>
+                            Este projeto utiliza a Inteligência Artificial para responder a uma pergunta importante:
+                            <strong>Como classificar indivíduos como bebedores ou não bebedores com base em dados?</strong> Combinando ciência de
+                            dados e tecnologia avançada, criamos um modelo de IA capaz de realizar essa classificação de forma precisa e eficiente.
+                        </p>
+                        <br />
+                        <p>
+                            Explore análises detalhadas, gráficos informativos e insights valiosos que mostram como os dados podem revelar padrões
+                            interessantes e ajudar na tomada de decisões. Aqui, você encontrará uma abordagem prática e explicativa sobre todo o
+                            processo.
+                        </p>
+                        <br />
+                        <p>
+                            <strong>Descubra como a IA está transformando informações em soluções inteligentes!</strong>
+                        </p>
+                    </div>
+                </section>
+
+                <section id="contexto">
+                    <div class="context">
+                        <h2>Contexto do Estudo</h2>
+                        <p>
+                            Este estudo busca explorar dados relacionados aos hábitos de consumo de álcool e cigarro, com o objetivo principal de
+                            classificar indivíduos como <strong>bebedores</strong> ou <strong>não bebedores</strong>. Embora a base de dados inclua
+                            informações sobre o status de fumante, essas serão utilizadas como um atributo auxiliar para ajudar na precisão da
+                            classificação.
+                        </p>
+                        <br />
+                        <p>
+                            A análise foi realizada utilizando técnicas de <strong>Análise Exploratória de Dados (EDA)</strong>, permitindo
+                            identificar padrões de comportamento e relações importantes entre as variáveis. Esses insights foram essenciais para
+                            desenvolver um modelo de <strong>Inteligência Artificial</strong> que realiza a classificação de forma eficiente e
+                            precisa.
+                        </p>
+                    </div>
+                </section>
+            </section>
+
+            <section id="formulario">
+                <h2>Formulário de Dados de Saúde</h2>
+                <form action="/processar" method="POST" id="inputForm" class="form-container">
+                    <div class="form-group">
+                        <label for="sexo">Sexo:</label>
+                        <select id="sexo" name="sexo" required>
+                            <option value="0">Feminino</option>
+                            <option value="1">Masculino</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idade">Idade (18-120 anos):</label>
+                        <input type="number" id="idade" name="idade" min="18" max="120" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="peso">Peso (kg):</label>
+                        <input type="number" id="peso" name="peso" min="1" max="300" step="0.1" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pressao_sistolica">Pressão Sistólica (mmHg):</label>
+                        <input type="number" id="pressao_sistolica" name="pressao_sistolica" min="70" max="200" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pressao_diastolica">Pressão Diastólica (mmHg):</label>
+                        <input type="number" id="pressao_diastolica" name="pressao_diastolica" min="40" max="130" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="glicose">Glicose (mg/dL):</label>
+                        <input type="number" id="glicose" name="glicose" min="50" max="500" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="colesterol_total">Colesterol Total (mg/dL):</label>
+                        <input type="number" id="colesterol_total" name="colesterol_total" min="100" max="500" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="colesterol_hdl">Colesterol HDL (mg/dL):</label>
+                        <input type="number" id="colesterol_hdl" name="colesterol_hdl" min="30" max="150" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="colesterol_ldl">Colesterol LDL (mg/dL):</label>
+                        <input type="number" id="colesterol_ldl" name="colesterol_ldl" min="50" max="250" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="triglicerideos">Triglicerídeos (mg/dL):</label>
+                        <input type="number" id="triglicerideos" name="triglicerideos" min="50" max="500" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="hemoglobina">Hemoglobina (g/dL):</label>
+                        <input type="number" id="hemoglobina" name="hemoglobina" min="10" max="20" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="proteina_urinaria">Proteína Urinária (mg/dL):</label>
+                        <input type="number" id="proteina_urinaria" name="proteina_urinaria" min="0" max="1000" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="creatinina_serica">Creatinina Sérica (mg/dL):</label>
+                        <input type="number" id="creatinina_serica" name="creatinina_serica" min="0.1" max="20" step="0.01" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="ast">AST (U/L):</label>
+                        <input type="number" id="ast" name="ast" min="5" max="150" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="alt">ALT (U/L):</label>
+                        <input type="number" id="alt" name="alt" min="5" max="150" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="gama_gt">Gama GT (U/L):</label>
+                        <input type="number" id="gama_gt" name="gama_gt" min="5" max="150" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="estado_fumante">Estado Fumante:</label>
+                        <select id="estado_fumante" name="estado_fumante" required>
+                            <option value="1">Não Fumante</option>
+                            <option value="2">Ex-Fumante</option>
+                            <option value="3">Fumante</option>
+                        </select>
+                    </div>
+                    <button type="submit">Enviar para a IA</button>
+                </form>
+            </section>
+
+            <section id="resultados">
+                <div class="results">
+                    <h2>Resultados da Análise Exploratória</h2>
+                    <p>Selecione o gráfico que deseja visualizar:</p>
+                    <div class="options">
+                        <button onclick="mostrarGrafico('grafico1')">Consumo de Álcool por Faixa Etária</button>
+                        <button onclick="mostrarGrafico('grafico2')">Pressão Sistólica e Diastólica por Status de Bebedor</button>
+                        <button onclick="mostrarGrafico('grafico3')">Heatmap</button>
+                        <button onclick="mostrarGrafico('grafico4')">Triglicerídeos e Consumo de Álcool</button>
+                        <button onclick="mostrarGrafico('grafico5')">Glicose e Colesterol Total por Consumo de Álcool</button>
+                        <button onclick="mostrarGrafico('grafico6')">Consumo de Álcool por Faixa de Peso</button>
+                        <button onclick="mostrarGrafico('grafico7')">Relação entre Status de Fumante e Consumo de Álcool</button>
+                    </div>
+
+                    <div id="graficoContainer" class="grafico">
+                        <h3></h3>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 BebaAI. Todos os direitos reservados.</p>
+        </footer>
+
+        <script src="../static/js/main.js"></script>
+    </body>
+</html>

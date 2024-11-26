@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Resultado da Análise</title>
+        <link rel="stylesheet" href="../static/css/resultado.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Resultado da Análise</h1>
+            <div class="resultado">
+                <p>
+                    Seu resultado indica:
+                    <span class="badge {{ 'positivo' if resultado == 'Você consome bebibas alcoólicas' else 'negativo' }}"> {{ resultado }} </span>
+                </p>
+            </div>
+            <p>Continue monitorando sua saúde. Para dúvidas, procure orientação médica.</p>
+            <button>
+                <a href="/">Fazer nova análise</a>
+            </button>
+        </div>
+    </body>
+</html>
